@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-rest-api-service
+  namespace: kong
+spec:
+  ports:
+    - name: test-rest-api-http
+      protocol: TCP
+      port: 8000
+      targetPort: 5000
+  selector:
+    app: test-rest-api
+  type: LoadBalancer
